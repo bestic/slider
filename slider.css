@@ -12,7 +12,7 @@
       left: 0;
       top: 0;
       transition: transform 1s ease-out;
-      -webkit-transition: transform 1s ease-out; }
+      -webkit-transition: -webkit-transform 1s ease-out; }
       .slider .slider-items .item img {
         width: 100%; }
       .slider .slider-items .item.active {
@@ -21,14 +21,17 @@
         position: absolute;
         z-index: 5;
         display: block;
-        transform: translate3d(100%, 0, 0); }
+        transform: translate3d(100%, 0, 0);
+        -webkit-transform: translate3d(100%, 0, 0); }
       .slider .slider-items .item.prev {
         position: absolute;
         z-index: 5;
         display: block;
-        transform: translate3d(-100%, 0, 0); }
+        transform: translate3d(-100%, 0, 0);
+        -webkit-transform: translate3d(-100%, 0, 0); }
       .slider .slider-items .item.next.move, .slider .slider-items .item.prev.move {
-        transform: translate3d(0, 0, 0); }
+        transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0); }
       .slider .slider-items .item.active.next.move, .slider .slider-items .itemactive.prev.move {
         position: static; }
       .slider .slider-items .item .slider-text {
@@ -61,7 +64,7 @@
     .slider .slider-control::after {
       content: " ";
       position: absolute;
-      top: -1px;
+      top: 0px;
       width: 50px;
       height: 50px;
       border-radius: 50%;
