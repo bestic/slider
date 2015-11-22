@@ -78,20 +78,22 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
   function init() {
 
-    rightButton.addEventListener('click', function() {
-
+    rightButton.addEventListener('click', function(e) {
+      e.preventDefault();
       var activeSlide = findActiveSlidePos();
       startAnimation(nextSlide(activeSlide), 'next');
 
     });
 
-    leftButton.addEventListener('click', function() {
+    leftButton.addEventListener('click', function(e) {
+      e.preventDefault();
       var activeSlide = findActiveSlidePos();
       startAnimation(prevSlide(activeSlide), 'prev');
     });
 
 
     indicatorOL.addEventListener('click', function(e) {
+      e.preventDefault();
 
       if (!e.target.dataset || !e.target.dataset.slideTo) {
         return;
