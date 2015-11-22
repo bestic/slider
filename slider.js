@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
   var items = slider.querySelectorAll('.slider-items .item');
 
   var timeout;
+  var isAnimated;
 
 
   function nextSlide(active) {
@@ -31,15 +32,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
     }
   }
 
-  function findNextSlidePos(direction) {
-
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].classList.contains(direction)) {
-        return i;
-      }
-    }
-  }
-
   function startAnimation(slideToShow, type) {
 
     var activeSlide = findActiveSlidePos();
@@ -48,16 +40,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
       clearTimeout(timeout);
     }
 
+    if (isAnimated) {
+      return;
+    }
+
     items[slideToShow].classList.add(type);
 
     setTimeout(function(){
       items[slideToShow].classList.add('move');
       indicators[activeSlide].classList.remove('active');
       indicators[slideToShow].classList.add('active');
-    }, 0);
+    }, 50);
 
+    isAnimated = true;
 
     items[slideToShow].addEventListener("transitionend", function(e){
+
+      isAnimated = false;
 
       e.target.removeEventListener("transitionend", arguments.callee);
 
